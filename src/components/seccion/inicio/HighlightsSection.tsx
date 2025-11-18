@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react';
 
 const PRIMARY_GREEN = 'text-[#1D4D3D]'; // Verde profundo del logo
@@ -21,8 +22,16 @@ const HighlightItem: React.FC<HighlightItemProps> = ({ title, description, image
         className={`w-full h-48 bg-gray-200 flex items-center justify-center ${BORDER_GREEN} border-b-4`}
         // Aquí se usaría una URL de imagen real. Usamos un placeholder con texto para la demostración.
       >
-        <span className={`text-xl font-bold uppercase ${PRIMARY_GREEN}`}>{imagePlaceholder}</span>
+        {/* <span className={`text-xl font-bold uppercase ${PRIMARY_GREEN}`}>{imagePlaceholder}</span> */}
         {/* Usar una etiqueta de imagen real: <img src="..." alt={title} className="w-full h-full object-cover" /> */}
+        <Image 
+          src={imagePlaceholder}
+          alt={title}
+          width={500}
+          height={500}
+          className="w-full h-full object-cover"
+          priority
+        />
       </div>
 
       {/* Contenido de la tarjeta con padding interior incrementado a 'p-6' */}
@@ -47,17 +56,17 @@ export default function HighlightsSection(){
     {
       title: "La Pizza Classica",
       description: "La pureza de la masa madre y los ingredientes D.O.P. italianos, horneada a la perfección en piedra volcánica.",
-      imagePlaceholder: "PIZZA",
+      imagePlaceholder: "/images/5011.jpg",
     },
     {
       title: "Pastas Artesanales",
       description: "Selección de pastas frescas y rellenas. Recetas transmitidas, ejecutadas con la precisión de la alta cocina.",
-      imagePlaceholder: "PASTAS",
+      imagePlaceholder: "/images/215.jpg",
     },
     {
       title: "Mixología de Autor",
       description: "Cócteles diseñados para complementar la experiencia. Clásicos redefinidos y mezclas exclusivas con espíritu europeo.",
-      imagePlaceholder: "CÓCTELES",
+      imagePlaceholder: "/images/coctel.jpg",
     },
   ];
 
