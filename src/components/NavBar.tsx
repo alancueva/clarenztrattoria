@@ -11,9 +11,9 @@ interface NavLink {
 
 const allNavLinks: NavLink[] = [
     { name: 'Inicio', href: '/' },
-    { name: 'Nosotros', href: '/nosotros' },
-    { name: 'Menú', href: '/menu' },
-    { name: 'Contactos', href: '/contactos' },
+    { name: 'Nosotros', href: '/page/nosotros' },
+    { name: 'Menú', href: '/page/menu' },
+    { name: 'Contactos', href: '/page/contactos' },
 ];
 
 // División de los enlaces para la navegación de escritorio (2 a la izquierda, 2 a la derecha)
@@ -107,7 +107,6 @@ export default function NavBar() {
                             {link.name}
                         </Link>
                     ))}
-                    {/* El botón de Pedidos Ya ha sido removido de la vista móvil. */}
                 </div>
             </div>
         </nav>
