@@ -27,16 +27,40 @@ export default function NavBar() {
         // Barra de navegación fija con fondo blanco y sombra sutil
         <nav className="bg-white shadow-md sticky top-0 z-50 font-sans">
             <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex justify-between items-center h-20 relative">
+                <div className="flex items-center h-20 relative">
 
-                    {/* 1. Enlaces Izquierdos (Escritorio) */}
-                    <div className="hidden md:flex md:items-center md:space-x-6">
-                        <div className="flex space-x-8">
+                    {/* Navegación Escritorio - Todo en un contenedor flex */}
+                    <div className="hidden md:flex flex-1 items-center justify-center">
+                        <div className="flex items-center space-x-2">
+                            {/* Enlaces Izquierdos */}
                             {leftLinks.map((link) => (
                                 <Link
                                     key={link.name}
                                     href={link.href}
-                                    className="text-gray-700 hover:text-red-700 px-2 py-2 text-lg font-medium transition duration-150 ease-in-out"
+                                    className="text-gray-700 hover:text-red-700 px-3 py-2 text-base font-medium transition-all duration-200 hover:scale-105"
+                                >
+                                    {link.name}
+                                </Link>
+                            ))}
+
+                            {/* Logo Centro */}
+                            <Link href="/" className="flex items-center px-6 hover:scale-105 transition-transform duration-200">
+                                <Image
+                                    src="/logo_clarenz_trattoria.png"
+                                    alt="Clarenz Trattoria Logo"
+                                    width={500}
+                                    height={500}
+                                    priority
+                                    className="h-25 w-auto"
+                                />
+                            </Link>
+
+                            {/* Enlaces Derechos */}
+                            {rightLinks.map((link) => (
+                                <Link
+                                    key={link.name}
+                                    href={link.href}
+                                    className="text-gray-700 hover:text-red-700 px-3 py-2 text-base font-medium transition-all duration-200 hover:scale-105"
                                 >
                                     {link.name}
                                 </Link>
@@ -44,49 +68,37 @@ export default function NavBar() {
                         </div>
                     </div>
 
-                    {/* 2. Sección de Logo (Centro) */}
-                    <div className="flex flex-1 items-center justify-center ">
-                        <Link href="/" className="flex items-center ">
-                            {/* Placeholder para tu logo */}
-                            <Image src="/logo_clarenz_trattoria.png"
+                    {/* Vista Móvil - Logo Centrado */}
+                    <div className="md:hidden flex flex-1 items-center justify-center">
+                        <Link href="/" className="flex items-center">
+                            <Image
+                                src="/logo_clarenz_trattoria.png"
                                 alt="Clarenz Trattoria Logo"
                                 width={500}
                                 height={500}
                                 priority
-                                className="h-25 w-auto" />
+                                className="h-25 w-auto"
+                            />
                         </Link>
                     </div>
 
-                    {/* 3. Enlaces Derechos (Escritorio) y Botón Móvil */}
-                    <div className="flex items-center space-x-6">
-                        {/* Enlaces Derechos (Escritorio) */}
-                        <div className="hidden md:flex md:items-center md:space-x-6">
-                            <div className="flex space-x-8">
-                                {rightLinks.map((link) => (
-                                    <Link
-                                        key={link.name}
-                                        href={link.href}
-                                        className="text-gray-700 hover:text-red-700 px-2 py-2 text-lg font-medium transition duration-150 ease-in-out"
-                                    >
-                                        {link.name}
-                                    </Link>
-                                ))}
-                            </div>
-                        </div>
-
-                        {/* Botón de Menú Móvil (Hamburguesa) */}
-                        <div className="md:hidden absolute left-4 top-1/2 transform -translate-y-1/2 z-50">
-                            <button
-                                onClick={() => setIsOpen(!isOpen)}
-                                className="p-2 rounded-md text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-700 transition duration-150"
-                                aria-controls="mobile-menu"
-                                aria-expanded={isOpen ? 'true' : 'false'}
-                            >
-                                <span className="sr-only">Abrir/Cerrar menú principal</span>
-                                {isOpen ? <X className="block h-7 w-7" /> : <Menu className="block h-7 w-7" />}
-                            </button>
-                        </div>
+                    {/* Botón de Menú Móvil */}
+                    <div className="md:hidden absolute left-4 top-1/2 transform -translate-y-1/2">
+                        <button
+                            onClick={() => setIsOpen(!isOpen)}
+                            className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-700 hover:bg-gray-100 hover:text-red-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-red-700 transition-all duration-200"
+                            aria-controls="mobile-menu"
+                            aria-expanded={isOpen}
+                        >
+                            <span className="sr-only">Abrir/Cerrar menú principal</span>
+                            {isOpen ? (
+                                <X className="block h-6 w-6" aria-hidden="true" />
+                            ) : (
+                                <Menu className="block h-6 w-6" aria-hidden="true" />
+                            )}
+                        </button>
                     </div>
+
                 </div>
             </div>
 
