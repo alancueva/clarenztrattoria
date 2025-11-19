@@ -113,11 +113,8 @@ const ContactForm: React.FC = () => {
                 <form onSubmit={handleSubmit} className="bg-white p-10 sm:p-10 rounded-2xl shadow-2xl border border-gray-100 space-y-6">
 
                     {/* Fila 1: Nombre y Email */}
-                    {/* <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    </div> */}
                     <InputField id="name" name="name" label="Tu Nombre" type="text" value={formData.name} onChange={handleChange} required icon={User} />
                     <InputField id="email" name="email" label="Tu Correo" type="email" value={formData.email} onChange={handleChange} required icon={Mail} />
-
                     {/* Fila 2: Teléfono (Opcional) */}
                     <InputField id="phone" name="phone" label="Teléfono (Opcional)" type="tel" value={formData.phone} onChange={handleChange} required={false} icon={Phone} />
 
@@ -154,8 +151,8 @@ const ContactForm: React.FC = () => {
                         type="submit"
                         disabled={isLoading}
                         className={`w-full flex items-center justify-center px-6 py-3 font-bold text-lg text-white rounded-xl transition duration-300 shadow-xl transform hover:scale-[1.01]
-              ${isLoading ? 'bg-gray-500 cursor-not-allowed' : `${PRIMARY_GREEN_BG} ${HOVER_GREEN}`}
-            `}
+                        ${isLoading ? 'bg-gray-500 cursor-not-allowed' : `${PRIMARY_GREEN_BG} ${HOVER_GREEN}`}
+                        `}
                     >
                         {isLoading ? (
                             <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
