@@ -102,7 +102,7 @@ const OrderModal: React.FC<OrderModalProps> = ({ isOpen, onClose }) => {
                 {/* Botón Llamada */}
                 <a
                   href={`tel:+51${branch.phone}`}
-                  className={`flex items-center justify-center py-3 text-sm font-semibold text-white rounded-full transition duration-300 ${PRIMARY_GREEN_BG} ${HOVER_GREEN} shadow-md`}
+                  className={`flex items-center justify-center py-3 pl-3 text-sm font-semibold text-white rounded-full transition duration-300 ${PRIMARY_GREEN_BG} ${HOVER_GREEN} shadow-md`}
                 >
                   <Phone className="w-4 h-4 mr-2" />
                   Llamar: {branch.phone}
@@ -113,7 +113,7 @@ const OrderModal: React.FC<OrderModalProps> = ({ isOpen, onClose }) => {
                   href={`https://wa.me/${branch.whatsappLink}?text=${encodedMessage}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`flex items-center justify-center py-3 text-sm font-semibold text-white rounded-full transition duration-300 ${WHATSAPP_GREEN} ${HOVER_WHATSAPP_GREEN} shadow-md`}
+                  className={`flex items-center justify-center py-3 pl-4 text-sm font-semibold text-white rounded-full transition duration-300 ${WHATSAPP_GREEN} ${HOVER_WHATSAPP_GREEN} shadow-md`}
                 >
                   <IconWhatsapp className="w-4 h-4 mr-2 text-white"/>
                   Pedir por WhatsApp
