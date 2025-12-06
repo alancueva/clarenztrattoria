@@ -57,8 +57,7 @@ const ContactLink = ({ icon: Icon, text, href, isWhatsapp = false }: { icon: Rea
  * Utiliza un diseño minimalista, centrado en móvil.
  */
 export default function Footer() {
-  // Ajuste el año del copyright
-  const currentYear = new Date().getFullYear() + 1; // Usamos 2025 o el año siguiente
+  const currentYear = new Date().getFullYear();
 
 
   return (
