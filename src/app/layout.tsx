@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import NavBar from "@/components/NavBar";
@@ -16,8 +16,20 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Clarenz Trattoria",
-  description: "Página web de Clarenz Trattoria",
+ // Básicos
+  title: {
+    template: "%s | Clarenz Trattoria",
+    default: "Clarenz Trattoria - La Mejor Pizza Artesanal Italiana en en Chimbote y Nuevo Chimbote",
+  },
+  description:
+    "Pizzería italiana auténtica en Chimbote y Nuevo Chimbote. Pizzas napolitanas al horno de leña, pasta fresca, antipasti y postres caseros. Reserva mesa o pide a domicilio. ¡Ven a disfrutar del verdadero sabor de Italia!",
+};
+
+// Configuración del viewport (importantísimo para móviles)
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
 };
 
 export default function RootLayout({
